@@ -23,4 +23,16 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+# Install Python scripts so ros2 run can find them
+install(PROGRAMS
+  scripts/talker.py
+  scripts/relay.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+# Install launch files
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
 ament_package()
